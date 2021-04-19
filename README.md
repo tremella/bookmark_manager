@@ -1,0 +1,1 @@
+please click this link for [domain model and user stories](https://docs.google.com/document/d/1wJbKZYCtzAtQvjJMoB2z82jam7BUpG7y-oK7oyS0v3Q/edit)
