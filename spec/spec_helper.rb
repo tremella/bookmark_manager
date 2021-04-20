@@ -1,10 +1,19 @@
 require 'sinatra'
 require 'sinatra/reloader'
-
 require 'capybara'
 require 'capybara/rspec'
-
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require 'simplecov'
+require 'simplecov-console'
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::Console,
+  # Want a nice code coverage website? Uncomment this next line!
+  # SimpleCov::Formatter::HTMLFormatter
+])
+SimpleCov.start
+# For accurate test coverage measurements, require your code AFTER 'SimpleCov.start'
+
+
 
 ENV["RACK_ENV"] = 'test'
 
@@ -13,7 +22,7 @@ ENV["RACK_ENV"] = 'test'
 Capybara.app = BM
 
 RSpec.configure do |config|
-  
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end

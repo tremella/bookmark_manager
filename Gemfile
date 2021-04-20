@@ -12,6 +12,10 @@ end
 group :test do
   gem 'capybara'
   gem 'rspec'
+  gem 'pg'
+  gem 'simplecov', require: false
+  gem 'simplecov-console', require: false
+  gem 'sinatra-reloader'
 end
 
 group :hosting do
