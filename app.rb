@@ -9,7 +9,6 @@ class BM < Sinatra::Base
 
   get '/' do
     erb :index
-
   end
 
   get '/bookmarks' do
@@ -17,6 +16,26 @@ class BM < Sinatra::Base
     erb :bookmarks
   end
 
+  get '/bookmarks/new' do
+    erb :"bookmarks/new"
+  end
+
+  post '/bookmarks' do
+    Bookmark.create(url: params[:url], title: params[:title])
+    redirect '/bookmarks'
+  end
+
+  # post '/bookmarks' do
+  #   new_bookmark = params[:new_bookmark]
+  #   connection = PG.connect(dbname: 'bookmark_manager_test')
+  #   connection.exec("INSERT INTO bookmarks (url) VALUES('#{new_bookmark}')")
+  #   redirect '/bookmarks'
+  # end
+
+
+  get '/add' do
+    erb :add
+  end
 
   run! if app_file == $0
 end
