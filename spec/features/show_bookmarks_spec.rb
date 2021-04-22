@@ -2,11 +2,6 @@ require 'pg'
 
 feature 'shows Bookmarks page' do
 
-  scenario 'it visits /' do
-    visit '/'
-    expect(page).to have_content('homepage')
-  end
-
   scenario 'it visits /bookmarks' do
     visit '/bookmarks'
     expect(page).to have_content('Bookmarks')
