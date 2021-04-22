@@ -7,10 +7,6 @@ class BM < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/' do
-    erb :index
-  end
-
   get '/bookmarks' do
     @bookmarks = Bookmark.all
     erb :bookmarks
@@ -31,11 +27,6 @@ class BM < Sinatra::Base
   #   connection.exec("INSERT INTO bookmarks (url) VALUES('#{new_bookmark}')")
   #   redirect '/bookmarks'
   # end
-
-
-  get '/add' do
-    erb :add
-  end
 
   run! if app_file == $0
 end
