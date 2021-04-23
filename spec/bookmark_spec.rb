@@ -16,12 +16,6 @@ describe Bookmark do
     expect(bookmarks.to_s).to include("http://www.google.com")
   end
 
-  # [
-  #   {"id" => "220", "title" => "Makers", "url" => "http://www.makersacademy.com"},
-  #   {"id" => "221", "title" => "Des...tp://www.destroyallsoftware.com"},
-  #   {"id" => "222", "title" => "Google", "url" => "http://www.google.com"}
-  # ]
-
 describe '.create' do
   it 'creates a new bookmark' do
     Bookmark.create(url: 'http://www.testbookmark.com', title: 'test bookmark')
@@ -31,19 +25,17 @@ describe '.create' do
   end
 end
 
-# def self.create(url:, title:)
-#   if ENV['ENVIRONMENT'] == 'test'
-#     connection = PG.connect(dbname: 'bookmark_manager_test')
-#   else
-#     connection = PG.connect(dbname: 'bookmark_manager')
-#   end
-#   connection.exec("INSERT INTO bookmarks (url) VALUES('#{url}', '#{title}')")
-# end
+describe '.delete' do
+  it 'deletes a given bookmark' do
+    Bookmark.create(url: 'https://asoftmurmur.com/', title: 'A Soft Murmur')
+    bookmarks = Bookmark.all
+    # p Bookmark.all
+    Bookmark.delete(id: bookmarks.first["id"])
+    # p Bookmark.all
+    expect(Bookmark.all.length).to eq 0
+  end
+end
 
-  # it 'has :list_all class method' do
-  #   # this is how we talk about it re: CLASS INSTANCE
-  #   expect(described_class).to respond_to(:abc)
-  # end
 
 
 end

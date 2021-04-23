@@ -10,9 +10,9 @@ feature 'shows Bookmarks page' do
   scenario 'shows bookmarks' do
     connection = PG.connect(dbname: 'bookmark_manager_test')
 
-    connection.exec("INSERT INTO bookmarks(url, title) VALUES('http://www.makersacademy.com', 'Makers');")
-    connection.exec("INSERT INTO bookmarks(url, title) VALUES('http://www.google.com','Google');")
-    connection.exec("INSERT INTO bookmarks(url, title) VALUES('http://www.destroyallsoftware.com','Destroy!');")
+    connection.exec("INSERT INTO bookmarks(id, url, title) VALUES('1','http://www.makersacademy.com', 'Makers');")
+    connection.exec("INSERT INTO bookmarks(id, url, title) VALUES('2','http://www.google.com','Google');")
+    connection.exec("INSERT INTO bookmarks(id, url, title) VALUES('3','http://www.destroyallsoftware.com','Destroy!');")
 
     visit '/bookmarks'
 

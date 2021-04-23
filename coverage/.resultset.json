@@ -21,12 +21,6 @@
           1,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           1,
           1,
           1,
@@ -36,16 +30,15 @@
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           null,
@@ -67,6 +60,24 @@
           1,
           1,
           1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/jessicabrand/Projects/bookmark_manager/spec/features/remove_bookmarks_spec.rb": {
+        "lines": [
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
           1,
           1,
           null,
@@ -102,6 +113,6 @@
         ]
       }
     },
-    "timestamp": 1619124488
+    "timestamp": 1619184510
   }
 }
