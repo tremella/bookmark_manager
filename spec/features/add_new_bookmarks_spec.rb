@@ -1,6 +1,6 @@
 
-feature 'the Add Bookmarks page' do
-  scenario 'user can visit /add' do
+feature 'the Add New Bookmarks page' do
+  scenario 'user can visit /new' do
       visit 'bookmarks/new'
       expect(page).to have_content('Add bookmark')
     end

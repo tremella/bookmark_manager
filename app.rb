@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/bookmark'
+require_relative './database_connection_setup'
 
 class BM < Sinatra::Base
   configure :development do
@@ -23,17 +24,19 @@ class BM < Sinatra::Base
   end
 
   delete '/bookmarks/:id' do
-    connection = PG.connect(dbname: 'bookmark_manager_test')
-    connection.exec("DELETE FROM bookmarks WHERE id = #{params['id']}")
+    Bookmark.delete(id: params[:id])
     redirect ('/bookmarks')
   end
 
-  # post '/bookmarks' do
-  #   new_bookmark = params[:new_bookmark]
-  #   connection = PG.connect(dbname: 'bookmark_manager_test')
-  #   connection.exec("INSERT INTO bookmarks (url) VALUES('#{new_bookmark}')")
-  #   redirect '/bookmarks'
-  # end
+  get '/bookmarks/:id/edit' do
+    @old_bookmark_id = params[:id]
+    erb :"bookmarks/edit"
+  end
+
+  patch '/bookmarks/:id' do
+    Bookmark.update(id: params[:id], title: params[:title], url: params[:url])
+    redirect('/bookmarks')
+  end
 
   run! if app_file == $0
 end

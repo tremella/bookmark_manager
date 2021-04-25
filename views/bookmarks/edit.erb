@@ -1,0 +1,9 @@
+<h2>edit bookmark</h2>
+<form action="/bookmarks/<%=@old_bookmark_id%>" method="post">
+  <input type="hidden" name="_method" value="PATCH" />
+  Web address <input type="text" name="url" />
+  Title <input type="text" name="title" />
+  <input type="submit" value="Submit" />
+</form>
+
+<a href="http://localhost:9292/bookmarks"><input type=button value='return without saving?'></a>
