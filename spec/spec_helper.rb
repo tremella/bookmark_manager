@@ -1,3 +1,4 @@
+ENV["ENVIRONMENT"] = 'test'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'capybara'
@@ -20,7 +21,7 @@ SimpleCov.start
 # ENV["RACK_ENV"] = 'test'
 
 # this sets the test environment
-ENV["ENVIRONMENT"] = 'test'
+
 
 RSpec.configure do |config|
   config.before(:each) do
